@@ -1,0 +1,45 @@
+<div class="container">
+    <div *ngIf="isLoading;else showData" class="loading items-center">
+        <mat-spinner [diameter]="60"></mat-spinner>
+    </div>
+    <ng-template #showData>
+        <h2 class="text-center">{{userId ? 'Update' : 'Add'}} User</h2>
+        <form class="form flex flex-column" [formGroup]="userForm">
+            <!-- Title  -->
+            <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Title</mat-label>
+                <input matInput type="text" formControlName="title">
+                <mat-error *ngIf="hasError('title', 'required')">
+                    Title is required
+                </mat-error>
+            </mat-form-field>
+
+            <!-- Description -->
+            <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Description</mat-label>
+                <input matInput type="text" formControlName="description">
+            </mat-form-field>
+
+            <!-- Due date -->
+            <mat-form-field appearance="outline" class="form-field">
+                <mat-label>Due date</mat-label>
+                <input matInput [matDatepicker]="datepicker" formControlName="dueDate">
+                <mat-datepicker-toggle matIconSuffix [for]="datepicker"></mat-datepicker-toggle>
+                <mat-datepicker #datepicker>
+                    <mat-datepicker-actions>
+                        <button mat-button matDatepickerCancel>Cancel</button>
+                        <button mat-raised-button color="primary" matDatepickerApply>Apply</button>
+                    </mat-datepicker-actions>
+                </mat-datepicker>
+                <mat-error *ngIf="hasError('dueDate', 'required')">
+                    Duedate is required
+                </mat-error>
+            </mat-form-field>
+
+        </form>
+        <div class="btn">
+            <button mat-raised-button color="primary" routerLink="/" class="back-btn">Back to List</button>
+            <button mat-raised-button color="accent" (click)="saveOrUpdateUser()">{{userId ? 'Update' : 'Add'}}</button>
+        </div>
+    </ng-template>
+</div>

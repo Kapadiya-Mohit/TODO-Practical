@@ -1,0 +1,25 @@
+.container {
+    margin: 16px;
+    
+    & .btn {
+        margin:10px;
+    }
+
+    & .icon {
+        margin-right: 5px;
+    }
+
+    & .delete-icon {
+        color: red;
+    }
+
+    & .loading {
+        margin-top: 10px;
+     }
+}
+
+.mat-row, .mat-mdc-no-data-row{
+    text-align: center;
+    height: 100px;
+    font-size: 20px;
+}

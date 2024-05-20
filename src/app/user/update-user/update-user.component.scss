@@ -1,0 +1,25 @@
+.container {
+   & .form {
+      align-items: center;
+      padding: 10px;
+
+      & .form-field {
+         width: 50%;
+         margin-top: 10px;
+      }
+   }
+
+   & .btn {
+      float: inline-end;
+      margin-right: 25%;
+   }
+
+   & .back-btn {
+      margin-right: 5px;
+   }
+
+   & .loading {
+      margin-top: 15%;
+   }
+
+}
